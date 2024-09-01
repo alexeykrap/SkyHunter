@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Мои дроны
+{% endblock %}
+
+
+
+{% block content %}
+ <h2>Список моих дронов:</h2>
+
+    <ul>
+        {% for drone in drones %}
+        <li>
+            <h3 style="color: green;">
+                <a href="{{ drone.get_url }}" target="_blank">{{drone}} </a>
+            </h3>
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

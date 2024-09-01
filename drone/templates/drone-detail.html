@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+{{drone}}
+{% endblock %}
+
+
+
+{% block content %}
+
+<h2>{{drone}}</h2>
+        <form action="/drones/{{ drone.id }}" method="post">
+            {% csrf_token %}
+            Введите url-адрес дрона
+            <input name='q_drone_uri' type="text" placeholder="Введите uri дрона">
+
+            <input type="submit" value="Подключиться">
+        </form>
+
+    {% if drone_url %}
+    <p style="color: green;">Соединение с: {{ drone_uri }}</p>
+    {% endif %}
+
+{% endblock %}
